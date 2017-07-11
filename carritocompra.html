@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Florería</title>
+    <meta name="keywords" content="floreria chillan, ramo de flores, flores a domicilio, envios a todo chile">
+    <meta name="author" content="Pablo Contreras">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="ROBOTS" content="INDEX, NOFOLLOW">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css" onload="if (media != 'all') media ='all'">
+    <link rel="shortcut icon" href="img/flor_icono.png">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/zebra_datepicker.css">
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css">
+
+    <script type="text/javascript" src="js/jquery.color.js" async></script>
+    <script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.js" async></script>
+    <script type="text/javascript" src="js/jquery.mask.min.js/"></script>
+    <script type="text/javascript" src="js/zebra_datepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.qtip.min.css">
+    <script type="text/javascript" src="js/jquery.qtip.min.js.php"></script>
+    <script type="text/javascript" src="js/moment.min.2.5.0.js"></script>
+    <script type="text/javascript" src="js/jquery.placeholder.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/estilos-movil.css" media="(max-height:550px)">
+    <link rel="stylesheet" type="text/css" href="css/estilos-movil.css" media="(max-width:1100px)">
+    <link rel="stylesheet" href="inicio.html">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var now = new Date();
+            //carrito productos item
+            var cantcarrito = $(".carrito_tabla_producto").length - 1;
+            if (cantcarrito >= 2) {
+                $("#carrito_titulo p").text(cantcarrito + " PRODUCTOS");
+            } else if (cantcarrito == 1) {
+                $("#carrito_titulo p").text("1 PRODUCTO");
+            } else if (cantcarrito == 0) {
+                $("#carrito_titulo p").text("0 PRODUCTOS");
+                $("#carrito_vacio").show();
+            }
+            $('input[name="datos_soltelefono"]').keyup(function () {
+                this.value = (this.value + '').replace(/[^0-9]/g, '');
+            });
+            $('input[name="datos_solcelular"]').keyup(function () {
+                this.value = (this.value + '').replace(/[^0-9]/g, '');
+            });
+        });
+    </script>
+    <script type="text/javascript" src="js/florerias.js" async></script>
+    <style type="text/css">
+        #carrito_tabla tr td div {
+            width: 66%;
+        }
+
+        .inputTooltipHidden {
+            display: none;
+        }
+    </style>
+
+    <!-- CALENDARIO -->
+    <script type="text/javascript" defer src="js/calendario.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var config = {
+                idcampana: 0,
+                timeServer: '2017/06/05 17:43:10',
+                turnos: [{
+                    "turno": 50,
+                    "horaini": "10:00",
+                    "horafin": "14:00",
+                    "estado": 1,
+                    "campania": 0,
+                    "especial": 0,
+                    "activo_desde": "2017-05-14",
+                    "activo_hasta": "2017-05-14",
+                    "dias_activo": [0]
+                }, {
+                    "turno": 48,
+                    "horaini": "09:00",
+                    "horafin": "14:00",
+                    "estado": 1,
+                    "campania": 0,
+                    "especial": 0,
+                    "activo_desde": "2017-02-14",
+                    "activo_hasta": "2017-02-14",
+                    "dias_activo": [0]
+                }, {
+                    "turno": 2,
+                    "horaini": "09:00",
+                    "horafin": "13:00",
+                    "estado": 1,
+                    "campania": 0,
+                    "especial": 0,
+                    "activo_desde": null,
+                    "activo_hasta": null,
+                    "dias_activo": [0, 1, 2, 3, 4, 5, 6]
+                }, {
+                    "turno": 34,
+                    "horaini": "09:00",
+                    "horafin": "13:00",
+                    "estado": 1,
+                    "campania": 0,
+                    "especial": 0,
+                    "activo_desde": "2017-05-12",
+                    "activo_hasta": "2017-05-13",
+                    "dias_activo": [5, 6]
+                }, {
+                    "turno": 44,
+                    "horaini": "14:00",
+                    "horafin": "18:00",
+                    "estado": 0,
+                    "campania": 0,
+                    "especial": 0,
+                    "activo_desde": "2016-05-08",
+                    "activo_hasta": "2016-05-08",
+                    "dias_activo": [0]
+                }, {
+                    "turno": 3,
+                    "horaini": "14:00",
+                    "horafin": "18:00",
+                    "estado": 1,
+                    "campania": 0,
+                    "especial": 0,
+                    "activo_desde": null,
+                    "activo_hasta": null,
+                    "dias_activo": [1, 2, 3, 4, 5, 6]
+                }, {
+                    "turno": 46,
+                    "horaini": "14:00",
+                    "horafin": "18:00",
+                    "estado": 1,
+                    "campania": 0,
+                    "especial": 0,
+                    "activo_desde": "2017-05-12",
+                    "activo_hasta": "2017-05-13",
+                    "dias_activo": [5, 6]
+                }, {
+                    "turno": 4,
+                    "horaini": "18:00",
+                    "horafin": "22:00",
+                    "estado": 1,
+                    "campania": 0,
+                    "especial": 0,
+                    "activo_desde": null,
+                    "activo_hasta": null,
+                    "dias_activo": [1, 2, 3, 4, 5, 6]
+                }, {
+                    "turno": 51,
+                    "horaini": "18:00",
+                    "horafin": "22:00",
+                    "estado": 1,
+                    "campania": 0,
+                    "especial": 0,
+                    "activo_desde": "2017-05-12",
+                    "activo_hasta": "2017-05-13",
+                    "dias_activo": [5, 6]
+                }], direction: true,
+                disabledDates: ["01 01 *", "01 05 *", "18 09 *", "19 09 *", "25 12 *", "02 07 2017", "19 11 2017", "17 12 2017"],
+                enabledDates: null,
+                itemsCarrito: {"especiales": [], "campanias": [], "normales": []},
+                popupadvertencia: 'public/image/',
+                popupcampanianormal: 'public/image/',
+            };
+
+            var Carrito = new CarritoController(config);
+
+        });</script>
+    <style>
+        div.parsley-error, div.parsley-success {
+            background-image: none !important;
+        }
+
+        input.parsley-error, textarea.parsley-error, select.parsley-error {
+            color: #B94A48 !important;
+            background-color: #F2DEDE !important;
+            border: 1px solid #EED3D7 !important;
+        }
+
+        #parsley-datos_tarjeta {
+            display: block !important;
+            color: #B94A48 !important;
+            background-color: #F2DEDE !important;
+            border: 1px solid #EED3D7 !important;
+            width: 340px;
+            padding: 7px;
+            margin: 10px 0px 0px 0px;
+            font-family: 'HelveticaLTStd-Cond';
+            font-size: 14px;
+            background-image: url(css/images/img-error.png);
+            background-position: right;
+            background-repeat: no-repeat;
+            border-radius: 5px;
+        }
+
+        .theDate, .theDate span {
+            font-family: 'HelveticaLTStd-Light';
+            font-size: 14px;
+            color: #F6901E !important;
+            font-weight: bold;
+        }
+
+        .theDate span {
+            float: none !important;
+            display: inherit !important;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="user">
+        <div class="ancho">
+            <a href="carritocompra.html" id="user_carrito">
+                <p>Mi carrito</p>
+                <span>0</span>
+            </a>
+
+            <div id="user_redes">
+                <a href="https://www.facebook.com/" target="_blank"
+                   style="background-image: url(css/images/red-user-facebook.png);"></a>
+                <a href="https://www.twitter.com/" target="_blank"
+                   style="background-image: url(css/images/red-user-twitter.png);"></a>
+                <a href="https://instagram.com/" target="_blank"
+                   style="background-image: url(css/images/red-user-instagram.png);"></a>
+            </div>
+            <a href="#user" id="user_cuenta_abrir"><p>CUENTA</p></a><a href="#" id="user_cuenta_cerrar"></a>
+            <div id="user_sesion" class="user_form user_form_movil">
+                <div class="user_form_overlay"></div>
+                <p>Inicia sesión</p>
+                <div id="user_sesion0" class="user_form0">
+                    <div>
+                        <p>INICIAR SESIÓN</p>
+                    </div>
+                    <form name="user_sesion_form" id="user_sesion_form" method="POST" action="logueo"
+                          data-validate="parsley" autocomplete="off">
+                        <input type="text" name="sesion_correo" id="sesion_correo" class="user_input"
+                               placeholder="CORREO:" data-required="true" data-trigger="change" data-type="email">
+                        <input type="password" name="sesion_contrasena" id="sesion_contrasena" class="user_input"
+                               placeholder="CONTRASEÑA:" data-required="true" data-type="alphanum" data-trigger="change"
+                               data-minLength="6">
+                        <input type="submit" name="sesion_ingresar" id="sesion_ingresar" class="user_boton"
+                               value="INGRESAR">
+                        <input type="hidden" name="page" value="/"/>
+                    </form>
+                    <a href="olvido.html">¿Olvidó su contraseña?</a>
+                    <img src="img/cerrar.png" alt="Cerrar" title="Cerrar">
+                </div>
+            </div>
+
+            <div id="user_registrate" class="user_form user_form_movil">
+                <div class="user_form_overlay"></div>
+                <p>Registrate</p>
+                <div id="user_registrate0" class="user_form0">
+                    <div>
+                        <p>
+                            <ins>TUS DATOS</ins>
+                            <em>REGISTRATE</em></p>
+                    </div>
+                    <form name="user_registrate_form" id="user_registrate_form" method="POST" action="registrar"
+                          data-validate="parsley" autocomplete="off">
+                        <input type="text" name="registrate_nombre" id="registrate_nombre" class="user_input"
+                               placeholder="*NOMBRE:" data-required="true" data-type="name" data-trigger="change"
+                               data-rangelength="[2,30]" maxlength="30">
+                        <input type="text" name="registrate_apellido paterno" id="registrate_apellido_paterno"
+                               class="user_input" placeholder="*APELLIDO PATERNO:" data-required="true" data-type="name"
+                               data-trigger="change" data-rangelength="[2,30]" maxlength="30">
+                        <input type="text" name="registrate_apellido materno" id="registrate_apellido_materno"
+                               class="user_input" placeholder="*APELLIDO MATERNO:" data-required="true" data-type="name"
+                               data-trigger="change" data-rangelength="[2,30]" maxlength="30">
+                        <input type="text" name="registrate_rut" id="registrate_rut" class="user_input"
+                               placeholder="*RUT:" data-required="true" data-type="digits" data-trigger="change"
+                               data-rangelength="[6,8]" maxlength="9">
+                        <input type="text" name="registrate_telefono" id="registrate_telefono" class="user_input"
+                               placeholder="TELÉFONO:" data-type="digits" data-trigger="keyup" data-rangelength="[7,20]"
+                               maxlength="20">
+                        <input type="text" name="registrate_celular" id="registrate_celular" class="user_input"
+                               placeholder="*CELULAR:" data-type="digits" data-required="true" data-trigger="change"
+                               data-rangelength="[9,9]" maxlength="9">
+                        <input type="text" name="registrate_correo" id="registrate_correo" class="user_input"
+                               placeholder="*CORREO:" data-required="true" data-trigger="change" data-type="email"
+                               maxlength="30">
+                        <input type="password" name="registrate_contrasena" id="registrate_contrasena"
+                               class="user_input" placeholder="*CONTRASEÑA: (Mínimo 6 caracteres)" data-required="true"
+                               data-type="alphanum" data-trigger="keyup" data-minLength="6">
+                        <input type="password" name="registrate_repetir" id="registrate_repetir" class="user_input"
+                               placeholder="*REPETIR CONTRASEÑA:" data-required="true" data-type="alphanum"
+                               data-trigger="keyup" data-minLength="6" data-equalto="#registrate_contrasena">
+                        <ins style="background:#fff;float:left;height:20px;margin:10px 0 0 0;"><input type="checkbox"
+                                                                                                      name="registrate_boletines"
+                                                                                                      id="registrarte_boletines"
+                                                                                                      style="float:left;height:20px;margin:0;padding:0;width:20px;"><span
+                                style="color:#888;float:left;font-family:HelveticaLTStd-Cond;font-size:14px;margin:2px 0 0 10px;padding:0;">Quiero recibir boletines</span>
+                        </ins>
+                        <input type="submit" name="registrate_registrarme" id="registrate_registrarme"
+                               class="user_boton" value="REGISTRARME">
+                    </form>
+                    <img src="img/cerrar.png" alt="Cerrar" title="Cerrar">
+                </div>
+            </div>
+            <a href="inicio.html" id="user_inicio">
+                <p>Inicio</p>
+            </a>
+        </div>
+    </div>
+
+
+    <div id="header">
+        <div class="ancho">
+            <h1 title="">
+                <a href="inicio.html" title="">
+                    <img src="img/flor_logo.png" alt="" title=" ">
+                    <strong>Florería</strong>
+                    <em>Chillán</em>
+                    <ins>una flor, un momento</ins>
+                </a>
+            </h1>
+            <div id="header_telefono_celular">
+                <div>
+                    <a href="tel:+56972713796" id="header_telefono">972713796</a>
+                </div>
+            </div>
+
+            <form name="header_buscar_form" id="header_buscar_form" action="javascript:;">
+                <a href="#" id="buscar_boton_cerrar"></a>
+                <input type="text" name="buscar_buscar" id="buscar_buscar" placeholder="Buscar Productos...">
+                <input type="button" name="buscar_lupa" id="buscar_lupa" value=" ">
+                <a href="#header_buscar_form" id="buscar_boton_abrir"></a>
+            </form>
+
+            <div id="header_menu">
+                <div id="header_menu_boton"><a href="#"></a><a href="#header"></a></div>
+                <a href="#header_menu" id="header_ocasiones_abrir"><p>OCASIONES</p></a>
+                <a href="#" id="header_ocasiones_cerrar"></a>
+                <div id="header_menu_a">
+                    <ul id="header_nav">
+                        <li><a href="ocasiones-ocasiones-1-1.html">OCASIONES</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="ocasiones-amor-1-1.html">Amor</a></li>
+                                <li><a href="ocasiones-cumpleanos-1-2.html">Cumpleaños</a></li>
+                                <li><a href="ocasiones-aniversario-1-3.html">Aniversario</a></li>
+                                <li><a href="ocasiones-felicitaciones-1-6.html">Felicitaciones</a></li>
+                                <li><a href="ocasiones-mejorate-pronto-1-5.html">Mejórate Pronto</a></li>
+                                <li><a href="ocasiones-institucionales-1-59.html">Institucionales</a></li>
+                                <li><a href="ocasiones-nacimientos-1-4.html">Nacimientos</a></li>
+                                <li><a href="ocasiones-condolencias-1-7.html">Condolencias</a></li>
+                                <li><a href="ocasiones-matrimonios-1-21.html">Matrimonios</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="productos-arreglos-2-24.html">ARREGLOS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Rosas</a></li>
+                                <li><a href="">Tulipanes</a></li>
+                                <li><a href="">Variados</a></li>
+                                <li><a href="">Girasoles</a></li>
+                                <li><a href="">Anturios</a></li>
+                                <li><a href="">Vintage</a></li>
+                                <li><a href="">Novias</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">RAMOS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Ramos</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">CONDOLENCIAS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Lágrimas</a></li>
+                                <li><a href="">Coronas</a></li>
+                                <li><a href="">Cruces</a></li>
+                                <li><a href="">Mantos</a></li>
+                                <li><a href="">Arreglos</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="">CAJAS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Cajas con Rosas</a>
+                                </li>
+                                <li><a href="">Cajas con Tulipanes</a></li>
+                                <li><a href="">Cajas con Peluches</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">NACIMIENTO</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Arreglos Niñas</a></li>
+                                <li><a href="">Arreglos Niños</a></li>
+                                <li><a href="">Canastas Niñas</a></li>
+                                <li><a href="">Canasta Niños</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="">REGALOS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Peluches</a></li>
+                                <li><a href="">Chocolates</a></li>
+                                <li><a href="">Globos con Helio</a></li>
+                                <li><a href="">Globos</a></li>
+                                <li><a href="">CupCakes</a></li>
+                                <li><a href="">Tortas</a></li>
+                                <li><a href="">Para Él</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript"> $(document).ready(function () {
+        $("a:contains('Día de la Mujer')").addClass("highlightSubcategory");
+    });
+    </script>
+    <!-- inicio -->
+    <div id="carrito" class="content">
+        <div class="ancho">
+            <!-- titulo -->
+            <div id="carrito_titulo">
+                <h2>TU CARRITO</h2>
+                <p>PRODUCTOS</p>
+                <a href="inicio.html">SEGUIR COMPRANDO</a>
+            </div>
+            <form name="carrito_cantidad_form" id="carrito_cantidad_form">
+                <table id="carrito_tabla">
+                    <tr>
+                        <th>PRODUCTO</th>
+                        <th>COMPLEMENTOS</th>
+                        <th>
+                            <ins>PRECIO</ins>
+                            $
+                        </th>
+                        <th>
+                            <em>X</em>
+                            <span>ELIMINAR</span>
+                        </th>
+                    </tr>
+                    <tr id="carrito_vacio">
+                        <td colspan="4">
+                            <p>SU CARRITO DE COMPRAS ESTÁ VACÍO</p>
+                        </td>
+                    </tr>
+                    <tr class="carrito_tabla_producto">
+                        <td>
+                            <div>
+                            </div>
+                        </td>
+                        <td>
+                            <h3>Costo por delivery</h3>
+                        </td>
+                        <td>
+                            <span class="deliverycosto">0</span>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <p>Ante cualquier duda, llámanos al <a href="tel: 972 713 796"> 972 713 796</a></p>
+                        </td>
+                        <td>
+                            <ins id="carrito_tabla_total1">$. 0.00</ins>
+                        </td>
+                        <td>
+
+                        </td>
+                    </tr>
+                </table>
+                <div class="msgcarritoform"></div>
+
+            </form>
+
+            <!-- datos de envio -->
+            <div name="carrito_datos_form" id="carrito_datos_form" autocomplete="off">
+                <h2>DATOS DE ENVÍO</h2>
+                <fieldset>
+                    <legend>¿Quién Envía?</legend>
+                    <input tabindex="1" type="text" name="datos_solnombre" id="datos_nombre1"
+                           class="camposinput datos_input" placeholder="* NOMBRE:" data-required="true"
+                           data-type="namecomplete" data-trigger="change" data-rangelength="[2,150]" value=""
+                           data-tooltip="* NOMBRE"/>
+                    <input tabindex="1" type="text" name="datos_solapellido" id="datos_apellido1"
+                           class="camposinput datos_input" placeholder="* APELLIDO:" data-required="true"
+                           data-type="namecomplete" data-trigger="change" data-rangelength="[2,150]" value=""
+                           data-tooltip="* APELLIDO"/>
+                    <input tabindex="2" type="text" name="datos_soltelefono" id="datos_telefono1"
+                           class="camposinput datos_input" placeholder="* TELÉFONO FIJO:" data-type="digits"
+                           data-trigger="change" data-rangelength="[7,20]" value=""/>
+                    <input tabindex="3" type="text" name="datos_solcelular" id="datos_telefono2"
+                           class="camposinput datos_input" placeholder="* TELÉFONO CELULAR:" data-type="digits"
+                           data-required="true" data-trigger="change" data-rangelength="[9,20]" value=""
+                           data-tooltip="* TELÉFONO CELULAR:"/>
+                    <input tabindex="4" type="text" name="datos_solcorreo" id="datos_telefono3"
+                           class="camposinput datos_input" placeholder="* CORREO:" data-required="true"
+                           data-trigger="change" data-type="email" value="" data-tooltip="* CORREO:"/>
+                    <span>Campos opcionales.</span>
+                    <select tabindex="5" name="datos_genero" id="datos_genero" class="datos_select"
+                            data-trigger="change">
+                        <option value="">GÉNERO:</option>
+                        <option value="F">FEMENINO</option>
+                        <option value="M">MASCULINO</option>
+                    </select>
+                    <div style="float: right">
+                        <input tabindex="6" type="text" name="datos_edad" id="datos_edad" class="datos_input"
+                               placeholder="* F. DE NACIMIENTO:" data-trigger="change" data-type="datePer" value=""
+                               maxlength="10"/>
+                        <p style="color: #646464;float: left;font-family:'HelveticaLTStd-Cond';font-size:14px;margin:20px 0 10px 0;text-align: left;width:10%;">
+                            DD/MM/YYYY</p>
+                        <span>Tenga en cuenta que estos datos son de la pesona quien solícita el pedido.</span>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>¿A quién se entrega?</legend>
+                    <input tabindex="7" type="text" name="datos_nombre" id="datos_nombre2"
+                           class="camposinput datos_input" placeholder="* NOMBRE:" data-required="true"
+                           data-type="namecomplete" data-trigger="change" data-rangelength="[2,150]" value=""
+                           data-tooltip="* NOMBRE:"/>
+                    <input tabindex="8" type="text" name="datos_nombre" id="datos_apellido2"
+                           class="camposinput datos_input" placeholder="* APELLIDO:" data-required="true"
+                           data-type="namecomplete" data-trigger="change" data-rangelength="[2,150]" value=""
+                           data-tooltip="* APELLIDO:"/>
+                    <span>Tenga en cuenta que estos datos son de la pesona a quien se le entregara el pedido.</span>
+                </fieldset>
+                <fieldset>
+                    <legend>¿Dónde se entrega?</legend>
+                    <select name="datos_entrega_distrito" id="datos_entrega_distrito" class="datos_select"
+                            data-required="true" data-trigger="change">
+                        <option value="">* COMUNA:</option>
+                        <option value="1">BULNES</option>
+                        <option value="2">CHILLÁN</option>
+                        <option value="3">CHILLÁN VIEJO</option>
+                        <option value="4">COBQUECURA</option>
+                        <option value="5">COELEMU</option>
+                        <option value="6">COIHUECO</option>
+                        <option value="7">EL CARMEN</option>
+                        <option value="8">NINHUE</option>
+                        <option value="9">ÑIQUEN</option>
+                        <option value="10">PEMUCO</option>
+                        <option value="11">PINTO</option>
+                        <option value="12">PORTEZUELO</option>
+                        <option value="13">QUILLÓN</option>
+                        <option value="14">QUIRIHUE</option>
+                        <option value="15">RÁNQUIL</option>
+                        <option value="16">SAN CARLOS</option>
+                        <option value="17">SAN FABIÁN</option>
+                        <option value="18">SAN IGNACIO</option>
+                        <option value="19">SAN NICOLÁS</option>
+                        <option value="20">TREHUACO</option>
+                        <option value="21">YUNGAY</option>
+                    </select>
+                    <input type="hidden" name="tarifadelivery" id="tarifadelivery" value="0"/>
+                    <input type="hidden" name="totcar" id="totcar" value="0"/>
+                    <span id="tarifa" class="tarifario">Costo por delivery es: </span>
+                    <input type="text" name="datos_entrega_direccion" id="datos_entrega_direccion1"
+                           class="entregadireccion datos_input" placeholder="* DIRECCIÓN:" data-type="address"
+                           data-required="true" data-trigger="change" value="" data-tooltip="* DIRECCIÓN:"/>
+                </fieldset>
+                <fieldset style="z-index: 999;">
+                    <legend>¿Día y hora de entrega?</legend>
+                    <ul>
+                        <li style="height: 252px;width: 230px;">
+                            <em>Fecha de entrega</em>
+                            <div style="width: 95%;position: relative;padding: 0 10px;top: -20px;left:-9px">
+                                <div class="wrapper" id="calendar_picker">
+                                    <input type="text" id="date" name="date" value="2017-05-30"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li style="width: 50% !important">
+                            <div id="carrito_popup">
+                                <em>Hora de entrega</em>
+                                <div id="carrito_popup0">
+                                    <img src="css/images/icon-interrogacion.png" alt="horario de repartos"/>
+                                    <div>
+                                        <strong>Horarios de reparto:</strong>
+                                        <em>Los repartos se realizan en 3 turnos:</em>
+                                        <div>
+                                            <p>Lunes a Sábado</p>
+                                            <ul>
+                                                <li>Entre 09:00 y 13:00</li>
+                                                <li>Entre 14:00 y 18:00</li>
+                                                <li>Entre 18:00 y 22:00</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <p>Domingo</p>
+                                            <ul>
+                                                <li>Entre 09:00 y 13:00</li>
+                                            </ul>
+                                        </div>
+                                        <ul>
+                                            <li>Deberá realizar su pedido máximo en el turno anterior para que llegue a
+                                                tiempo en el turno siguiente.
+                                            </li>
+                                            <li>Si necesita que su pedido llegue en el mismo turno, consulte las tarifas
+                                                de nuestro servicio de reparto express.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="theDate"><span id="todayText"></span></div>
+                                <div id="content_turnos"></div>
+                            </div>
+                            <div class="msgfechaentrega"></div>
+                        </li>
+                    </ul>
+                </fieldset>
+                <fieldset>
+                    <legend>Datos para la dedicatoria</legend>
+                    <textarea name="datos_dedicatoria" id="datos_dedicatoria" class="datos_textarea"
+                              placeholder="* DEDICATORIA:" data-required="true" data-trigger="change"
+                              data-rangelength="[2,150]" maxlength="150" data-tooltip="* DEDICATORIA:"></textarea>
+                </fieldset>
+                <fieldset>
+                    <legend>Comprobante de pago</legend>
+                    <div>
+                        <input type="text" name="datos_informacion_nombre" id="datos_nombre3"
+                               class="camposinput datos_informacion_nombre datos_input" placeholder="* NOMBRE:"
+                               data-required="true" data-type="alphanum" data-trigger="change" value=""
+                               data-tooltip="* NOMBRE:"/>
+                        <input type="text" name="datos_informacion_apellido" id="datos_apellido3"
+                               class="camposinput datos_informacion_apellido datos_input" placeholder="* APELLIDO:"
+                               data-required="true" data-type="alphanum" data-trigger="change" value=""
+                               data-tooltip="* APELLIDO:"/>
+                        <input type="text" name="datos_informacion_rut" id="datos_rut3"
+                               class="camposinput datos_informacion_rut datos_input" placeholder="* RUT:"
+                               data-required="true" data-trigger="change" minlength="8" max="11" value=""
+                               data-tooltip="* RUT:"/>
+                        <input type="text" name="datos_informacion_direccion" id="datos_entrega_direccion2"
+                               class="entregadireccion datos_informacion_direccion datos_input"
+                               placeholder="* DIRECCIÓN:" data-required="true" data-type="address" value=""
+                               style="width: 45%;" data-tooltip="* DIRECCIÓN:"/>
+
+                    </div>
+                    <select name="datos_informacion_comuna" id="datos_informacion_comuna" class="datos_select"
+                            data-required="true" data-trigger="change">
+                        <option value="">* COMUNA:</option>
+                        <option value="1">BULNES</option>
+                        <option value="2">CHILLÁN</option>
+                        <option value="3">CHILLÁN VIEJO</option>
+                        <option value="4">COBQUECURA</option>
+                        <option value="5">COELEMU</option>
+                        <option value="6">COIHUECO</option>
+                        <option value="7">EL CARMEN</option>
+                        <option value="8">NINHUE</option>
+                        <option value="9">ÑIQUEN</option>
+                        <option value="10">PEMUCO</option>
+                        <option value="11">PINTO</option>
+                        <option value="12">PORTEZUELO</option>
+                        <option value="13">QUILLÓN</option>
+                        <option value="14">QUIRIHUE</option>
+                        <option value="15">RÁNQUIL</option>
+                        <option value="16">SAN CARLOS</option>
+                        <option value="17">SAN FABIÁN</option>
+                        <option value="18">SAN IGNACIO</option>
+                        <option value="19">SAN NICOLÁS</option>
+                        <option value="20">TREHUACO</option>
+                        <option value="21">YUNGAY</option>
+                    </select>
+                </fieldset>
+                <h2>FORMAS DE PAGO</h2>
+                <fieldset>
+                    <p>Selecciona tu forma de pago</p>
+                    <div>
+                        <input type="radio" name="datos_tarjeta" id="datos_tarjeta_visa" class="datos_radio"
+                               value="visa">
+                        <label for="datos_tarjeta_visa">
+                            <img src="img/icono-visa.png" alt="visa" title="visa">
+                            <strong>Visa Débito / Crédito</strong>
+                        </label>
+                    </div>
+                    <div>
+                        <input type="radio" name="datos_tarjeta" id="datos_tarjeta_master" class="datos_radio"
+                               value="mastercard">
+                        <label for="datos_tarjeta_master">
+                            <img src="img/icono-mastercard.png" alt="Mastercard" title="Mastercard">
+                            <strong>Mastercard</strong>
+                        </label>
+                    </div>
+                    <div>
+                        <input type="radio" name="datos_tarjeta" id="datos_tarjeta_deposito" class="datos_radio"
+                               value="deposito_bancario" data-required="true"
+                               data-parsley-error-message="must be a valid email address">
+                        <label for="datos_tarjeta_deposito">
+                            <img src="img/icono-bancoestado.png" alt="Deposito Bancario" title="Deposito bancario">
+                            <strong>Depósito <em>o Transferencia Bancaria</em>
+                                <ins>bancario</ins>
+                            </strong>
+                        </label>
+                    </div>
+                    <p style="font-size:14px;margin: 20px 0 -10px 0;color: red;font-weight: bold;"
+                       id="verificar_formas_pago"></p>
+                </fieldset>
+                <input type="submit" name="datos_pagar" id="datos_pagar" value="PAGAR">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- footer -->
+
+<div id="footer">
+    <div class="ancho">
+        <div id="footer0">
+
+            <div id="footer_fechas">
+                <img src="img/icono-calendario.png" alt="Fechas para recordar" title="Fechas para recordar">
+                <div>
+                    <p>
+                        <strong>FECHAS PARA</strong>
+                        <em>RECORDAR</em>
+                    </p>
+                </div>
+                <span>
+                    <ins>Te ayudamos a recordar<br>esos días especiales.</ins><a href="popup-fechas.html"
+                                                                                 class="popup_fechas"><em>Recordar fecha</em>
+                    </a>
+                </span>
+            </div>
+
+            <div id="footer_recibe">
+                <strong>RECIBE OFERTAS Y MÁS</strong>
+                <form name="footer_recibe_form" id="footer_recibe_form" data-validate="parsley" autocomplete="off">
+                    <input type="text" name="recibe_nombre" id="recibe_nombre" class="recibe_input"
+                           placeholder="Ingresa tu nombre completo:" data-required="true" data-type="name"
+                           data-trigger="keyup" data-rangelength="[2,150]"/>
+                    <input type="text" name="recibe_correo" id="recibe_correo" class="recibe_input"
+                           placeholder="Ingresa tu correo:" data-required="true" data-trigger="keyup"
+                           data-type="email"/>
+                    <div class="msgsuscribete"></div>
+                    <input type="submit" name="recibe_suscribirme" id="recibe_suscribirme" value="Suscribirme"/>
+                </form>
+            </div>
+
+            <div id="footer_compra" class="footer1">
+                <strong>Compra segura</strong>
+                <p>Tu compra con entrega segura</p>
+            </div>
+
+            <div id="footer_entrega" class="footer1">
+                <strong>Entrega a tiempo</strong>
+                <p>Todo esfuerzo posible por dejar su pedido listo para entregarlo lo antes posible</p>
+            </div>
+
+            <div id="footer_telefono" class="footer1">
+                <div>
+                    <em>Call Center</em>
+                    <a href="tel:422203749">422 203 749</a>
+                    <a href="tel:972713796" id="footer_celular">972 713 796</a>
+                </div>
+            </div>
+
+            <div id="footer_redes" class="footer1">
+                <a href="facebook" target="_blank">
+                    <img src="img/icono-facebook.png" alt="Facebook" title="Facebook">
+                </a>
+                <a href="twitter" target="_blank">
+                    <img src="img/icono-twitter.png" alt="Twitter" title="Twitter">
+                </a>
+                <a href="instagram" target="_blank">
+                    <img src="img/icono-instagram.png" alt="Instagram" title="Instagram">
+                </a>
+            </div>
+
+        </div>
+        <div id="footer_subir">SUBIR</div>
+    </div>
+</div>
+
+
+<div id="cuentas">
+    <div class="ancho">
+
+        <div id="cuentas_pago">
+            <strong>FORMAS DE
+                <span>PAGO</span>
+            </strong>
+            <em>
+                <img src="img/icono-visa.png" alt="Visa" title="Visa">
+                <span>Credito y Debito</span>
+            </em>
+            <em>
+                <img src="img/icono-mastercard.png" alt="Mastercard" title="Mastercard">
+                <span>Credito</span>
+            </em>
+            <em>
+                <img src="img/logo_cuentarut.jpg" alt="Deposito bancario" title="Deposito bancario">
+                <span>Deposito bancario</span>
+            </em>
+        </div>
+    </div>
+</div>
+
+
+<div id="nav">
+    <a href="#nav" id="nav_boton_abrir"><p>MÁS</p></a>
+    <a href="#" id="nav_boton_cerrar"></a>
+    <div class="ancho">
+        <a href="quienes-somos.html">Quiénes somos</a>
+        <a href="como-comprar.html">Cómo comprar</a>
+        <a href="formas-de-pago.html">Formas de pago</a>
+        <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
+        <a href="terminos-y-condiciones.html">Términos y condiciones</a>
+        <a href="delivery.html">Delivery</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="otros-productos.html">Otros Productos<span> en Tienda</span></a>
+    </div>
+</div>
+
+
+<div id="creditos">
+    <div class="ancho">
+        <div id="florerias">
+            <p>FLORERIA CHILLÁN</p>
+            <p>TODOS LOS DERECHOS RESERVADOS <span></span></p>
+        </div>
+        <div id="autor">
+            <p>POWERED BY
+                <a href="Facebook" target="_blank">PABLO CONTRERAS</a>
+            </p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" defer src="js/parsley.js"></script>
+<script type="text/javascript" defer src="js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript">
+    $("#buscar_buscar").keyup(function () {
+        $("#buscar_buscar").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "listaproducto-" + request.term,
+                    dataType: "json",
+                    data: {
+                        term: request.term
+                    },
+                    success: function (data) {
+                        response(data);
+                    }
+                });
+            },
+            select: function (event, ui) {
+                if (ui.item) {
+                    window.location = "detalle-" + ui.item.id
+                }
+                ;
+            },
+            minLength: 2
+        }).autocomplete("instance")._renderItem = function (ul, item) {
+            var inner_html = '<a><div class="list_item_container" style="width:300px;height: 54px;padding: 0;"><div class="image" style="width: 60px;height: 60px;margin-right: 10px;float: left;"><img src="https://www.floreriasunidas.com/small/' + item.imagen + '" width="50px" height="50px" ></div><div class="label" style="font-size: 14px;">' + item.label + '</div><div class="description" style="font-style: ' + "'HelveticaLTStd-Light'" + ';font-size: 0.6em;color: #787878;">' + (item.descripcion).substring(0, 60) + '...</div></div></a>';
+            return $("<li></li>")
+                .data("item.autocomplete", item)
+                .append(inner_html)
+                .appendTo(ul);
+        };
+    });
+</script>
+</div>
+
+<script>
+    !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+            n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = '2.0';
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window,
+        document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '256468074724089');
+    fbq('track', "PageView"); // activa en produccion
+</script>
+<noscript><img height="1" width="1" style="display:none"
+               src="https://www.facebook.com/tr?id=256468074724089&ev=PageView&noscript=1"/></noscript>
+<!-- End Facebook Pixel Code -->
+
+<script>
+    $(window).load(function () {
+        var form__ = $('#carrito_datos_form').parsley({
+            listeners: {
+                onFieldError: function (elem) {
+                    elem.qtip({
+                        content: {
+                            text: elem.data(
+                                'tooltip') // Use the "div" element next to this for the content
+                        },
+                        position: {
+                            my: 'top center',
+                            at: 'bottom center'
+                        },
+                        show: {
+                            ready: true
+                        },
+                        hide: {
+                            event: 'unfocus'
+                        }
+                    });
+                }
+            }
+        });
+
+    });
+</script>
+<script>
+    $(function () {
+        $("#datos_edad").mask("99/99/9999");
+    })
+</script>
+</body>
+</html>

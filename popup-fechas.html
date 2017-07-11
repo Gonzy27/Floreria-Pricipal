@@ -1,0 +1,133 @@
+<div class="popupx">
+    <h2 class="popupx_title">FECHAS PARA RECORDAR</h2>
+    <ul>
+        <li>
+            <form id="fechas_inicia_form" data-validate="parsley" autocomplete="off"  >
+                <div class="popupx_login">
+                    <h2 class="form_title">INICIAR SESIÓN</h2>
+                    <input type="text" name="inicia_correo" id="inicia_correo" class="popupx_input" placeholder="* CORREO:" data-required="true" data-trigger="keyup" data-type="email">
+                    <input type="password" name="inicia_contrasena" id="inicia_contrasena" class="popupx_input" placeholder="* CONTRASEÑA:" data-required="true" data-type="alphanum" data-trigger="keyup" data-minLength ="6" >
+                    <input type="submit" name="inicia_sesion" id="inicia_sesion" class="popupx_boton" value="INICIA SESIÓN">
+                    <a href="olvido.html" id="popolvido" class="popupx_getpass">¿olvido su contraseña?</a>
+                </div>
+            </form>
+            <div class="clear_float"></div>
+        </li>
+        <li>
+            <form id="fechas_nuevo_form" method="POST" data-validate="parsley" autocomplete="off" action="#" >
+                <div class="popupx_info_registro">
+                    <h2 class="form_title">SOY NUEVO CLIENTE</h2>
+                    <p>Regístrate y obtendrás beneficios como:<br>Una compra más rápida, recordatorio de fechas y promociones especiales.</p>
+                    <button type="button" name="nuevo_boton" id="nuevo_boton" class="popupx_boton">REGISTRARME</button>
+                </div>
+                <div class="popupx_registro">
+                    <h2 class="form_title">REGISTRATE</h2>
+                    <input type="text" name="nuevo_nombre" id="nuevo_nombre" class="popupx_input" placeholder="* NOMBRES:" data-required="true" data-type="alphanum" data-trigger="keyup" data-rangelength="[2,150]">
+                    <input type="text" name="registrate_apellido paterno" id="registrate_apellido_paterno" class="user_input"  placeholder="*APELLIDO PATERNO:" data-required="true" data-type="name" data-trigger="change" data-rangelength="[2,30]" maxlength="30">
+                    <input type="text" name="registrate_apellido materno" id="registrate_apellido_materno" class="user_input"  placeholder="*APELLIDO MATERNO:" data-required="true" data-type="name" data-trigger="change" data-rangelength="[2,30]" maxlength="30">
+                    <input type="text" name="registrate_rut" id="registrate_rut" class="user_input" placeholder="*RUT:" data-required="true" data-type="digits" data-trigger="change" data-rangelength="[6,8]" maxlength="9">
+                    <input type="text" name="nuevo_telefono" id="nuevo_telefono" class="popupx_input" placeholder="TELÉFONO:" data-type="digits" data-trigger="keyup" data-rangelength="[7,20]">
+                    <input type="text" name="nuevo_celular" id="nuevo_celular" class="popupx_input" placeholder="* CELULAR:"  data-type="digits" data-required="true" data-trigger="keyup" data-rangelength="[9,9]">
+                    <input type="text" name="nuevo_correo" id="nuevo_correo" class="popupx_input" placeholder="* CORREO:" data-required="true" data-trigger="keyup" data-type="email">
+                    <input type="password" name="nuevo_contrasena" id="nuevo_contrasena" class="popupx_input" placeholder="* CONTRASEÑA: (Minimo 6 caracteres)" data-required="true" data-type="alphanum" data-trigger="keyup" data-minLength ="6">
+                    <input type="password" name="nuevo_repetir" id="nuevo_repetir" class="popupx_input" placeholder="* REPETIR CONTRASEÑA:" data-required="true" data-type="alphanum" data-trigger="keyup" data-minLength ="6" data-equalto="#nuevo_contrasena">
+                    <div class="popupx_fakeinput">
+                        <input type="checkbox" name="nuevo_boletines" id="nuevo_boletines" class="popup_checkbox">
+                        <label for="nuevo_boletines">Quiero recibir boletines</label>
+                    </div>
+                    <input type="submit" name="nuevo_registrarme" id="nuevo_registrarme" class="popupx_boton" value="REGISTRARME" style="margin: 2px 0 0 0 !important">
+                    <input type="button" id="cancelar_regitro" class="popupx_boton" value="CANCELAR" style="margin: 2px 0 0 0 !important">
+                </div>
+            </form>
+        </li>
+    </ul>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var popupx = $('.popupx');
+        var popupx_login = $('.popupx_login');
+        var popupx_info_registro = $('.popupx_info_registro');
+        var popupx_registro = $('.popupx_registro');
+
+        $('#fechas_inicia_form').parsley();
+        $('#fechas_nuevo_form').parsley();
+
+        $('#nuevo_boton').on('click', function () {
+            var boton = $(this);
+
+            popupx_info_registro.slideToggle('fast');
+            popupx_registro.slideToggle('fast');
+
+            popupx.addClass('registro_active');
+        });
+
+        $('#cancelar_regitro').on('click', function () {
+            popupx_info_registro.slideToggle('fast');
+            popupx_registro.slideToggle('fast');
+
+            popupx.removeClass('registro_active');
+        });
+
+        $("#fechas_inicia_form").submit(function (e) {
+            e.preventDefault();
+            if ($(this).parsley('isValid')) {
+                $.post('logueorecordar', {
+                    inicia_correo: $('#inicia_correo').val(),
+                    inicia_contrasena: $('#inicia_contrasena').val()
+                }, function (data) {
+                    if (data == 1) {
+                        parent.window.location.reload();
+                    } else {
+                        $.fancybox('public/image/img-incorrecto.jpg', {
+                            type: 'image',
+                            padding: 0,
+                            afterClose: function () {
+                                $.fancybox({
+                                    href: 'popup-fechas',
+                                    type: 'ajax',
+                                    padding: 0,
+                                    autoWidth: true,
+                                    autoHeight: true,
+                                    topRatio: .25
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+        });
+
+        $("#fechas_nuevo_form").submit(function (e) {
+            e.preventDefault();
+            if ($(this).parsley('isValid')) {
+                $.post('registrarrecordar', $("#fechas_nuevo_form").serialize(), function (data) {
+                    if (data == 1) {
+                        parent.window.location.reload();
+                    } else {
+                        $.fancybox('public/image/img-registrado.jpg', {
+                            type: 'image',
+                            padding: 0,
+                            afterClose: function () {
+                                $.fancybox({
+                                    href: 'popup-fechas',
+                                    type: 'ajax',
+                                    padding: 0,
+                                    autoWidth: true,
+                                    autoHeight: true,
+                                    topRatio: .25,
+                                    beforeShow: function () {
+                                        $('html').addClass('fancybox-margin fancybox-lock').css('position', 'fixed');
+                                    },
+                                    beforeClose: function () {
+                                        $('html').removeClass('fancybox-margin fancybox-lock').css('position', 'inherit');
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    });
+</script>

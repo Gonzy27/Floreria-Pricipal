@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Florería</title>
+    <meta name="keywords" content="floreria chillan, ramo de flores, flores a domicilio, envios a todo chile">
+    <meta name="author" content="Pablo Contreras">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://www.floreriasunidas.com/public/css/jquery-ui.css" onload="if (media != 'all')
+					media = 'all'">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+
+
+
+    <link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css">
+
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.color.js"></script>
+    <script type="text/javascript" src="js/jquery.rotate.js"></script>
+    <script type="text/javascript" src="js/jquery.placeholder.js"></script>
+
+    <script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.js"></script>
+
+
+    <script type="text/javascript" src="js/rs.js"></script>
+    <script type="text/javascript" src="js/florerias.js"></script>
+    <script type="text/javascript" src="js/jquery.elevatezoom.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/estilos-movil.css" media="(max-height:550px)">
+    <link rel="stylesheet" type="text/css" href="css/estilos-movil.css" media="(max-width:1100px)">
+    <script type="text/javascript">
+        /*Zoom*/
+        $(document).ready(function () {
+            $("#zoom_01").elevateZoom({zoomWindowPosition: 2, zoomWindowOffetx: 1,
+                tint: true, tintColour: '#fff', tintOpacity: 0.5, borderSize: 1,
+                lensShape: "round", lensSize: 20, lensBorder: 2});
+        });
+    </script>
+</head>
+<body>
+<div id="main">
+    <div id="user">
+        <div class="ancho">
+            <a href="carritocompra.html" id="user_carrito">
+                <p>Mi carrito</p>
+                <span>0</span>
+            </a>
+
+            <div id="user_redes">
+                <a href="https://www.facebook.com/" target="_blank" style="background-image: url(css/images/red-user-facebook.png);"></a>
+                <a href="https://www.twitter.com/" target="_blank" style="background-image: url(css/images/red-user-twitter.png);"></a>
+                <a href="https://instagram.com/" target="_blank" style="background-image: url(css/images/red-user-instagram.png);"></a>
+            </div>
+            <a href="#user" id="user_cuenta_abrir"><p>CUENTA</p></a><a href="#" id="user_cuenta_cerrar"></a>
+            <div id="user_sesion" class="user_form user_form_movil">
+                <div class="user_form_overlay"></div>
+                <p>Inicia sesión</p>
+                <div id="user_sesion0" class="user_form0">
+                    <div>
+                        <p>INICIAR SESIÓN</p>
+                    </div>
+                    <form name="user_sesion_form" id="user_sesion_form" method="POST" action="logueo" data-validate="parsley" autocomplete="off">
+                        <input type="text" name="sesion_correo" id="sesion_correo" class="user_input" placeholder="CORREO:" data-required="true" data-trigger="change" data-type="email">
+                        <input type="password" name="sesion_contrasena" id="sesion_contrasena" class="user_input" placeholder="CONTRASEÑA:" data-required="true" data-type="alphanum" data-trigger="change" data-minLength ="6" >
+                        <input type="submit" name="sesion_ingresar" id="sesion_ingresar" class="user_boton" value="INGRESAR">
+                        <input type="hidden" name="page" value="/" />
+                    </form>
+                    <a href="olvido.html">¿Olvidó su contraseña?</a>
+                    <img src="img/cerrar.png" alt="Cerrar" title="Cerrar">
+                </div>
+            </div>
+
+            <div id="user_registrate" class="user_form user_form_movil">
+                <div class="user_form_overlay"></div>
+                <p>Registrate</p>
+                <div id="user_registrate0" class="user_form0">
+                    <div>
+                        <p><ins>TUS DATOS</ins><em>REGISTRATE</em></p>
+                    </div>
+                    <form name="user_registrate_form" id="user_registrate_form" method="POST" action="registrar.php" data-validate="parsley" autocomplete="off" >
+                        <input type="text" name="registrate_nombre" id="registrate_nombre" class="user_input"  placeholder="*NOMBRE:" data-required="true" data-type="name" data-trigger="change" data-rangelength="[2,30]" maxlength="30">
+                        <input type="text" name="registrate_apellido paterno" id="registrate_apellido_paterno" class="user_input"  placeholder="*APELLIDO PATERNO:" data-required="true" data-type="name" data-trigger="change" data-rangelength="[2,30]" maxlength="30">
+                        <input type="text" name="registrate_apellido materno" id="registrate_apellido_materno" class="user_input"  placeholder="*APELLIDO MATERNO:" data-required="true" data-type="name" data-trigger="change" data-rangelength="[2,30]" maxlength="30">
+                        <input type="text" name="registrate_rut" id="registrate_rut" class="user_input" placeholder="*RUT:" data-required="true" data-trigger="change" data-rangelength="[11,12]" maxlength="12">
+                        <input type="text" name="registrate_telefono" id="registrate_telefono" class="user_input" placeholder="TELÉFONO:" data-type="digits" data-trigger="keyup" data-rangelength="[7,20]" maxlength="20">
+                        <input type="text" name="registrate_celular" id="registrate_celular" class="user_input" placeholder="*CELULAR:" data-type="digits" data-required="true" data-trigger="change" data-rangelength="[9,9]" maxlength="9">
+                        <input type="text" name="registrate_correo" id="registrate_correo" class="user_input" placeholder="*CORREO:" data-required="true" data-trigger="change" data-type="email" maxlength="30">
+                        <input type="password" name="registrate_contrasena" id="registrate_contrasena" class="user_input" placeholder="*CONTRASEÑA: (Mínimo 6 caracteres)" data-required="true" data-type="alphanum" data-trigger="keyup" data-minLength ="6" >
+                        <input type="password" name="registrate_repetir" id="registrate_repetir" class="user_input" placeholder="*REPETIR CONTRASEÑA:" data-required="true" data-type="alphanum" data-trigger="keyup" data-minLength ="6" data-equalto="#registrate_contrasena">
+                        <input type="submit" name="registrate_registrarme" id="registrate_registrarme" class="user_boton" value="REGISTRARME">
+                    </form>
+
+                    <img src="img/cerrar.png" alt="Cerrar" title="Cerrar">
+                </div>
+            </div>
+            <a href="inicio.html" id="user_inicio">
+                <p>Inicio</p>
+            </a>
+        </div>
+    </div>
+
+
+
+    <div id="header">
+        <div class="ancho">
+            <h1 title="">
+                <a href="inicio.html" title="">
+                    <img src="img/flor_logo.png" alt="" title=" ">
+                    <strong>Florería</strong>
+                    <em>Chillán</em>
+                    <ins>una flor, un momento</ins>
+                </a>
+            </h1>
+            <div id="header_telefono_celular">
+                <div>
+                    <a href="tel:+56972713796" id="header_telefono">972713796</a>
+                </div>
+            </div>
+
+            <form name="header_buscar_form" id="header_buscar_form" action="javascript:;">
+                <a href="#" id="buscar_boton_cerrar"></a>
+                <input type="text" name="buscar_buscar" id="buscar_buscar" placeholder="Buscar Productos..." >
+                <input type="button" name="buscar_lupa" id="buscar_lupa" value=" " >
+                <a href="#header_buscar_form" id="buscar_boton_abrir"></a>
+            </form>
+
+            <div id="header_menu">
+                <div id="header_menu_boton"><a href="#"></a><a href="#header"></a></div>
+                <a href="#header_menu" id="header_ocasiones_abrir"><p>OCASIONES</p></a>
+                <a href="#" id="header_ocasiones_cerrar"></a>
+                <div id="header_menu_a">
+                    <ul id="header_nav">
+                        <li ><a href="ocasiones-ocasiones-1-1.html">OCASIONES</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="ocasiones-amor-1-1.html">Amor</a></li>
+                                <li><a href="ocasiones-cumpleanos-1-2.html">Cumpleaños</a></li>
+                                <li><a href="ocasiones-aniversario-1-3.html">Aniversario</a></li>
+                                <li><a href="ocasiones-felicitaciones-1-6.html">Felicitaciones</a></li>
+                                <li><a href="ocasiones-mejorate-pronto-1-5.html">Mejórate Pronto</a></li>
+                                <li><a href="ocasiones-institucionales-1-59.html">Institucionales</a></li>
+                                <li><a href="ocasiones-nacimientos-1-4.html">Nacimientos</a></li>
+                                <li><a href="ocasiones-condolencias-1-7.html">Condolencias</a></li>
+                                <li><a href="ocasiones-matrimonios-1-21.html">Matrimonios</a></li>
+                            </ul>
+                        </li>
+                        <li ><a href="productos-arreglos-2-24.html">ARREGLOS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Rosas</a></li>
+                                <li><a href="">Tulipanes</a></li>
+                                <li><a href="">Variados</a></li>
+                                <li><a href="">Girasoles</a></li>
+                                <li><a href="">Anturios</a></li>
+                                <li><a href="">Vintage</a></li>
+                                <li><a href="">Novias</a></li>
+                            </ul>
+                        </li>
+                        <li><a href= "">RAMOS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Ramos</a></li>
+                            </ul>
+                        </li>
+                        <li ><a href="">CONDOLENCIAS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Lágrimas</a></li>
+                                <li><a href="">Coronas</a></li>
+                                <li><a href="">Cruces</a></li>
+                                <li><a href="">Mantos</a></li>
+                                <li><a href="">Arreglos</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li ><a href="">CAJAS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Cajas con Rosas</a>
+                                </li>
+                                <li><a href="">Cajas con Tulipanes</a></li>
+                                <li><a href="">Cajas con Peluches</a></li>
+                            </ul>
+                        </li>
+                        <li ><a href="">NACIMIENTO</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Arreglos Niñas</a></li>
+                                <li><a href="">Arreglos Niños</a></li>
+                                <li><a href="">Canastas Niñas</a></li>
+                                <li><a href="">Canasta Niños</a></li>
+                            </ul>
+                        </li>
+                        <li ><a href="">REGALOS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Peluches</a></li>
+                                <li><a href="">Chocolates</a></li>
+                                <li><a href="">Globos con Helio</a></li>
+                                <li><a href="">Globos</a></li>
+                                <li><a href="">CupCakes</a></li>
+                                <li><a href="">Tortas</a></li>
+                                <li><a href="">Para Él</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript"> $(document).ready(function(){
+        $("a:contains('Día de la Mujer')").addClass("highlightSubcategory");
+    });
+    </script>
+    <!-- inicio -->
+    <div id="detalle" class="content">
+        <div class="ancho">
+            <!-- descripcion del producto -->
+            <form id="detalle_descripcion_form" data-validate="parsley" autocomplete="off">
+                <div id="detalle0">
+                    <a href="javascript:window.history.back();" id="detalle_volver_movil">Volver</a>
+                    <div id="detalle_foto">
+                        <p>Se puede realizar compras a partir de los $5.000</p>
+                        <div id="detalle_foto_img">
+                            <img id="zoom_01" src="css/images/hortensias-mediano.jpg" alt="Florerias Unidas" title="Floreria Chillán" data-zoom-image="css/images/hortensias-grande.jpg" />
+
+                        </div>
+                        <div id="detalle_foto_redes">
+                            <a href="#" title="Floreria Chillán" target="_blank">
+                                <img src="img/icono-facebook.png" alt="Facebook" title="Facebook">
+                            </a>
+                            <a href="#" title="Floreria Chillán" target="_blank">
+                                <img src="img/icono-twitter.png" alt="Twitter" title="Twitter">
+                            </a>
+                            <a href="#" title="Floreria Chillán" target="_blank">
+                                <img src="img/icono-correo.png" alt="Correo" title="Correo">
+                            </a>
+                            <a href="#" target="_blank">
+                                <img src="css/images/like.jpg" alt="me gusta" title="Me gusta">
+
+                            </a>
+                        </div>
+                    </div>
+
+                    <div id="detalle_descripcion">
+                        <h2 style="">HORTENSIAS - VAR30</h2>
+                        <!--                                <p>VAR30</p>-->
+                        <div class="detalle_descripcion0">
+                            <strong>DESCRIPCIÓN</strong>
+                            <em>Canasto de mimbre con lazo y hortensias de colores variados.</em>
+                        </div>
+
+                        <div class="detalle_descripcion0">
+                            <div id="detalle_descripcion_noform">
+                                <div class="oculto">
+                                    <label for="descripcion_cantidad">CANTIDAD:</label>
+                                    <select name="descripcion_cantidad" id="descripcion_cantidad" class="descripcion_select" data-required="true">
+                                        <option value="01">01</option>
+                                    </select>
+                                </div>
+                                <div id="detalle_descripcion_precio">
+                                    <label>PRECIO :</label>
+                                    <p>
+                                        $19.000</p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="detalle_descripcion0">
+                            <p>(*) El modelo de las bases, accesorios o flores están disponibles de acuerdo a stock. Imágenes referenciales. </p>
+                        </div>
+                        <div class="detalle_descripcion0 detalle_complemento_popup">
+                            <strong>COMPLEMENTOS</strong>
+
+                            <a href="javascript:;" id="chocolate">
+                                <img src="css/images/small/LINDT1-min.jpg" alt="chocolates">
+                                <p>Chocolates</p>
+                            </a>
+                            <a href="javascript:;" id="peluche">
+                                <img src="css/images/small/07747-min.jpg" alt="peluches">
+                                <p>Peluches</p>
+                            </a>
+                            <a href="javascript:;" id="globo">
+                                <img src="css/images/small/Globo18-GGR-min.jpg" alt="globos">
+                                <p>Globos</p>
+                            </a>
+                            <a href="javascript:;" id="licores">
+                                <img src="css/images/small/LC01.jpg" alt="licores">
+                                <p>Licores</p>
+                            </a>
+                        </div>
+                        <a href="popup-fechas.html" id="detalle_descripcion_fecha" class="popup_fechas"><p>Recordar fecha</p></a>
+
+                        <input type="submit" id="detalle_descripcion_carrito" value="AGREGAR A CARRITO" />
+                        <input type="hidden" name="producto" class="idproducto" id="producto448" value="448">
+                        <input type="hidden" name="campanas" id="campanas" value="">
+                        <input type="hidden" name="precio" id="precio448" value="19000">
+                    </div>
+
+                </div>
+
+
+                <!-- productos de complemento -->
+                <div id="detalle_complemento">
+                    <div id="chocolat">
+                        <h4>tenemos el complemento ideal
+                            <span>CHOCOLATES</span>
+                        </h4>
+                        <div class="carrusel_izquierda">
+                            <div></div>
+                        </div>
+                        <div class="carrusel_derecha">
+                            <div></div>
+                        </div>
+                        <div class="detalle_carrusel">
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img">
+                                        <img src="css/images/small/IBER2-min.jpg" alt="Floreria Chillan" class="comple">
+                                        <div></div>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>PASTILLAS DE LECHE LA IBERICA - IBER1</h3>
+                                        <p  >$ 3.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="1" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox0">
+                                            <input type="checkbox" name="item_checkbox0" id="item_checkbox0" class="item_checkbox"  value="Agregar Complemento">
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img">
+                                        <img src="css/images/small/imagen-13302720160130.jpg" alt="Floreria Chillán" class="comple">
+                                        <div></div>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>CHOCOLATE FERRERO ROCHER CORAZON x 8 UNID - FERRE1</h3>
+                                        <p  >$7.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="36" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox1">
+                                            <input type="checkbox" name="item_checkbox1" id="item_checkbox1" class="item_checkbox"  value="Agregar Complemento">
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img">
+                                        <img src="css/images/small/FERRE2-min.jpg" alt="Floreria Chillán" class="comple">
+                                        <div></div>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>Ferrero Rocher X 8 - FERRE2</h3>
+                                        <p  >$5.500</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="2" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox2">
+                                            <input type="checkbox" name="item_checkbox2" id="item_checkbox2" class="item_checkbox"  value="Agregar Complemento">
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="peluch">
+                        <h4>tenemos el complemento ideal
+                            <span>Peluches</span>
+                        </h4>
+                        <div class="carrusel_izquierda">
+                            <div></div>
+                        </div>
+                        <div class="carrusel_derecha">
+                            <div></div>
+                        </div>
+                        <div class="detalle_carrusel">
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img">
+                                        <img src="css/images/small/imagen-13045820161012.jpg" alt="Floreria Chillán" class="comple">
+                                        <div></div>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>Oso panda (25 Cms.) - 03346</h3>
+                                        <p  >$15.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="45" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox3">
+                                            <input type="checkbox" name="item_checkbox3" id="item_checkbox3" class="item_checkbox"  value="Agregar Complemento">
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img">
+                                        <img src="css/images/small/07839-min.jpg" alt="Floreria Chillán" class="comple">
+                                        <div></div>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>OSO BEARY SWEET AURORA (35CMS) - 07839</h3>
+                                        <p  >$19.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="35" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox4">
+                                            <input type="checkbox" name="item_checkbox4" id="item_checkbox4" class="item_checkbox"  value="Agregar Complemento">
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img">
+                                        <img src="css/images/small/03392-min.jpg" alt="Floreria Chillán" class="comple">
+                                        <div></div>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>VACA CLEMENTINA (30 cms.) - 03393</h3>
+                                        <p  >$16.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="7" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox5">
+                                            <input type="checkbox" name="item_checkbox5" id="item_checkbox5" class="item_checkbox"  value="Agregar Complemento">
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="glob">
+                        <h4>tenemos el complemento ideal
+                            <span>Globos</span>
+                        </h4>
+                        <div class="carrusel_izquierda">
+                            <div></div>
+                        </div>
+                        <div class="carrusel_derecha">
+                            <div></div>
+                        </div>
+                        <div class="detalle_carrusel">
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img" >
+                                        <img src="css/images/small/GGR-Amor.jpg" alt="Floreria Chillan" class="comple">
+                                        <div></div>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>Globo de 18” (GGR) – Amor</h3>
+                                        <p  >$4.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="4" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox6">
+                                            <input type="checkbox" name="item_checkbox6" id="item_checkbox6" class="item_checkbox"  value="Agregar Complemento" />
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                    <div class="msgglobo"></div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img" >
+                                        <img src="css/images/small/GGR-Mejorate-Pronto.jpg" alt="Florerias Unidas" class="comple">
+                                        <div></div>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>Globo de 18” (GGR)-  Mejórate pronto</h3>
+                                        <p  >$4.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="11" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox7">
+                                            <input type="checkbox" name="item_checkbox7" id="item_checkbox7" class="item_checkbox"  value="Agregar Complemento" />
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                    <div class="msgglobo"></div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img" >
+                                        <img src="css/images/small/imagen-19114720160404.jpg" alt="Floreria Chillan" class="comple">
+                                        <div></div>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>GLOBO DE 18” (GGR)- CARITA FELIZ</h3>
+                                        <p  >$3.500</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="38" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox8">
+                                            <input type="checkbox" name="item_checkbox8" id="item_checkbox8" class="item_checkbox"  value="Agregar Complemento" />
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                    <div class="msgglobo"></div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img" >
+                                        <img src="css/images/small/GGR-Nino.jpg" alt="Floreria Chillan" class="comple">
+                                        <div></div>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>Globo de 18” (GGR)-  Niño</h3>
+                                        <p  >$3.500</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="12" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox9">
+                                            <input type="checkbox" name="item_checkbox9" id="item_checkbox9" class="item_checkbox"  value="Agregar Complemento" />
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                    <div class="msgglobo"></div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img" >
+                                        <img src="css/images/small/GGR-Nina.jpg" alt="Floreria Chillan" class="comple">
+                                        <div></div>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>Globo de 18” (GGR)  -  Niña</h3>
+                                        <p  >$3.500</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="13" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox10">
+                                            <input type="checkbox" name="item_checkbox10" id="item_checkbox10" class="item_checkbox"  value="Agregar Complemento" />
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                    <div class="msgglobo"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="lico">
+                        <h4>tenemos el complemento ideal
+                            <span>Licores</span>
+                        </h4>
+                        <div class="carrusel_izquierda">
+                            <div></div>
+                        </div>
+                        <div class="carrusel_derecha">
+                            <div></div>
+                        </div>
+                        <div class="detalle_carrusel">
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img" >
+                                        <img src="css/images/small/LC01.jpg" alt="Floreria Chillan" class="comple">
+                                        <div></div>
+                                        <p style="color:#666;font-family:'HelveticaLTStd-Cond';font-size:13px;margin:0 auto;text-align:center;position:absolute;bottom:5px;left:0;right:0;">"Tomar bebidas alcohólicas en exceso es dañino"</p>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>ASTI RICCADONNA CLASICO 750ML - LIC01</h3>
+                                        <p  $15.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="20" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox11">
+                                            <input type="checkbox" name="item_checkbox11" id="item_checkbox11" class="item_checkbox"  value="Agregar Complemento" />
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                    <div class="msglicor"></div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img" >
+                                        <img src="css/images/small/LC14.jpg" alt="Floreria Chillan" class="comple">
+                                        <div></div>
+                                        <p style="color:#666;font-family:'HelveticaLTStd-Cond';font-size:13px;margin:0 auto;text-align:center;position:absolute;bottom:5px;left:0;right:0;">"Tomar bebidas alcohólicas en exceso es dañino"</p>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>WHISKY J. WALKER BLACK LABEL - LIC14</h3>
+                                        <p  >$35.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="33" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox12">
+                                            <input type="checkbox" name="item_checkbox12" id="item_checkbox12" class="item_checkbox"  value="Agregar Complemento" />
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                    <div class="msglicor"></div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img" >
+                                        <img src="css/images/small/LC02.jpg" alt="Floreria Chillan" class="comple">
+                                        <div></div>
+                                        <p style="color:#666;font-family:'HelveticaLTStd-Cond';font-size:13px;margin:0 auto;text-align:center;position:absolute;bottom:5px;left:0;right:0;">"Tomar bebidas alcohólicas en exceso es dañino"</p>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>ASTI RICCADONNA RUBI 750ML - LIC02</h3>
+                                        <p  >$14.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="21" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox13">
+                                            <input type="checkbox" name="item_checkbox13" id="item_checkbox13" class="item_checkbox"  value="Agregar Complemento" />
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                    <div class="msglicor"></div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img" >
+                                        <img src="css/images/small/LC03.jpg" alt="Floreria Chillan" class="comple">
+                                        <div></div>
+                                        <p style="color:#666;font-family:'HelveticaLTStd-Cond';font-size:13px;margin:0 auto;text-align:center;position:absolute;bottom:5px;left:0;right:0;">"Tomar bebidas alcohólicas en exceso es dañino"</p>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>PISCO CUATRO GALLOS MOSTO VERDE ACHOLADO - LIC03</h3>
+                                        <p  >$14.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="22" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox14">
+                                            <input type="checkbox" name="item_checkbox14" id="item_checkbox14" class="item_checkbox"  value="Agregar Complemento" />
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                    <div class="msglicor"></div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img" >
+                                        <img src="css/images/small/LC05.jpg" alt="Floreria Chillan" class="comple">
+                                        <div></div>
+                                        <p style="color:#666;font-family:'HelveticaLTStd-Cond';font-size:13px;margin:0 auto;text-align:center;position:absolute;bottom:5px;left:0;right:0;">"Tomar bebidas alcohólicas en exceso es dañino"</p>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>VINO FINCA LA LINDA MALBEC - LIC05</h3>
+                                        <p  >$11.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="24" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox15">
+                                            <input type="checkbox" name="item_checkbox15" id="item_checkbox15" class="item_checkbox"  value="Agregar Complemento" />
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                    <div class="msglicor"></div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img" >
+                                        <img src="css/images/small/LC08.jpg" alt="Floreria Chillan" class="comple">
+                                        <div></div>
+                                        <p style="color:#666;font-family:'HelveticaLTStd-Cond';font-size:13px;margin:0 auto;text-align:center;position:absolute;bottom:5px;left:0;right:0;">"Tomar bebidas alcohólicas en exceso es dañino"</p>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>VINO MARQUES DE RISCAL RUEDA BLANCO - LIC08</h3>
+                                        <p  >$11.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="27" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox16">
+                                            <input type="checkbox" name="item_checkbox16" id="item_checkbox16" class="item_checkbox"  value="Agregar Complemento" />
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                    <div class="msglicor"></div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img" >
+                                        <img src="css/images/small/LC09.jpg" alt="Floreria Chillan" class="comple">
+                                        <div></div>
+                                        <p style="color:#666;font-family:'HelveticaLTStd-Cond';font-size:13px;margin:0 auto;text-align:center;position:absolute;bottom:5px;left:0;right:0;">"Tomar bebidas alcohólicas en exceso es dañino"</p>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>VODKA ABSOLUT AZUL - LIC09</h3>
+                                        <p  >$13.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="28" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox17">
+                                            <input type="checkbox" name="item_checkbox17" id="item_checkbox17" class="item_checkbox"  value="Agregar Complemento" />
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                    <div class="msglicor"></div>
+                                </div>
+                            </div>
+                            <div class="carrusel_item">
+                                <div class="detalle_item content_item">
+                                    <div class="content_item_img" >
+                                        <img src="css/images/small/LC13.jpg" alt="Floreria Chillan" class="comple">
+                                        <div></div>
+                                        <p style="color:#666;font-family:'HelveticaLTStd-Cond';font-size:13px;margin:0 auto;text-align:center;position:absolute;bottom:5px;left:0;right:0;">"Tomar bebidas alcohólicas en exceso es dañino"</p>
+                                    </div>
+                                    <div class="content_item_datos">
+                                        <h3>WHISKY J. WALKER RED LABEL - LIC13</h3>
+                                        <p  >$15.000</p>
+                                    </div>
+                                    <div class="content_item_form" >
+                                        <fieldset>
+                                            <input type="hidden" class="ocasiones" name="ocasiones" value="32" />
+                                        </fieldset>
+                                        <label class="item_check" for="item_checkbox18">
+                                            <input type="checkbox" name="item_checkbox18" id="item_checkbox18" class="item_checkbox"  value="Agregar Complemento" />
+                                            <span>Agregar Complemento</span>
+                                        </label>
+                                    </div>
+                                    <div class="msglicor"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- footer -->
+
+    <div id="footer">
+        <div class="ancho">
+            <div id="footer0">
+
+                <div id="footer_fechas">
+                    <img src="img/icono-calendario.png" alt="Fechas para recordar" title="Fechas para recordar">
+                    <div>
+                        <p>
+                            <strong>FECHAS PARA</strong>
+                            <em>RECORDAR</em>
+                        </p>
+                    </div>
+                    <span>
+                    <ins>Te ayudamos a recordar<br>esos días especiales.</ins><a href="popup-fechas.html" class="popup_fechas"><em>Recordar fecha</em>
+                    </a>
+                </span>
+                </div>
+
+                <div id="footer_recibe">
+                    <strong>RECIBE OFERTAS Y MÁS</strong>
+                    <form name="footer_recibe_form" id="footer_recibe_form" data-validate="parsley" autocomplete="off">
+                        <input type="text" name="recibe_nombre" id="recibe_nombre" class="recibe_input" placeholder="Ingresa tu nombre completo:" data-required="true" data-type="name" data-trigger="keyup" data-rangelength="[2,150]" />
+                        <input type="text" name="recibe_correo" id="recibe_correo" class="recibe_input" placeholder="Ingresa tu correo:" data-required="true" data-trigger="keyup" data-type="email" />
+                        <div class="msgsuscribete"></div>
+                        <input type="submit" name="recibe_suscribirme" id="recibe_suscribirme" value="Suscribirme" />
+                    </form>
+                </div>
+
+                <div id="footer_compra" class="footer1">
+                    <strong>Compra segura</strong>
+                    <p>Tu compra con entrega segura</p>
+                </div>
+
+                <div id="footer_entrega" class="footer1">
+                    <strong>Entrega a tiempo</strong>
+                    <p>Todo esfuerzo posible por dejar su pedido listo para entregarlo lo antes posible</p>
+                </div>
+
+                <div id="footer_telefono" class="footer1">
+                    <div>
+                        <em>Call Center</em>
+                        <a href="tel:422203749"><i class="fa fa-phone" aria-hidden="true"></i>
+                            422 203 749</a>
+                        <a href="tel:972713796" id="footer_celular"><i class="fa fa-mobile" aria-hidden="true"></i>
+                            972 713 796</a>
+                    </div>
+                </div>
+
+                <div id="footer_redes" class="footer1">
+                    <a href="facebook" target="_blank">
+                        <img src="img/icono-facebook.png" alt="Facebook" title="Facebook" width="80" height="80">
+                    </a>
+                    <a href="twitter" target="_blank">
+                        <img src="img/icono-twitter.png" alt="Twitter" title="Twitter">
+                    </a>
+                    <a href="instagram" target="_blank">
+                        <img src="img/icono-instagram.png" alt="Instagram" title="Instagram">
+                    </a>
+                </div>
+
+            </div>
+            <div id="footer_subir">SUBIR</div>
+        </div>
+    </div>
+
+
+    <div id="cuentas">
+        <div class="ancho">
+
+            <div id="cuentas_pago">
+                <strong>FORMAS DE
+                    <span>PAGO</span>
+                </strong>
+                <em>
+                    <img src="img/icono-visa.png" alt="Visa" title="Visa">
+                    <span>Credito y Debito</span>
+                </em>
+                <em>
+                    <img src="img/icono-mastercard.png" alt="Mastercard" title="Mastercard">
+                    <span>Credito</span>
+                </em>
+                <em>
+                    <img src="img/logo_cuentarut.jpg" alt="Deposito bancario" title="Deposito bancario">
+                    <span>Deposito bancario</span>
+                </em>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="nav">
+        <a href="#nav" id="nav_boton_abrir"><p>MÁS</p></a>
+        <a href="#" id="nav_boton_cerrar"></a>
+        <div class="ancho">
+            <a href="quienes-somos.html">Quiénes somos</a>
+            <a href="como-comprar.html">Cómo comprar</a>
+            <a href="formas-de-pago.html">Formas de pago</a>
+            <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
+            <a href="terminos-y-condiciones.html">Términos y condiciones</a>
+            <a href="delivery.html">Delivery</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="otros-productos.html">Otros Productos<span> en Tienda</span></a>
+        </div>
+    </div>
+
+
+    <div id="creditos">
+        <div class="ancho">
+            <div id="florerias">
+                <p>FLORERIA CHILLÁN</p>
+                <p>TODOS LOS DERECHOS RESERVADOS <span></span></p>
+            </div>
+            <div id="autor">
+                <p>POWERED BY
+                    <a href="Facebook" target="_blank">PABLO CONTRERAS</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" defer src="js/parsley.js" ></script>
+    <script type="text/javascript" defer src="js/jquery.blockUI.js" ></script>
+    <script type="text/javascript" src="js/jquery-ui.js" ></script>
+    <script type="text/javascript">
+        $("#buscar_buscar").keyup(function(){
+            $("#buscar_buscar").autocomplete({
+                source: function(request, response) {
+                    $.ajax({
+                        url: "listaproducto-"+request.term,
+                        dataType: "json",
+                        data: {
+                            term : request.term
+                        },
+                        success: function(data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function( event, ui ) {
+                    if(ui.item){
+                        window.location = "detalle-"+ ui.item.id
+                    };
+                },
+                minLength: 2
+            }).autocomplete("instance")._renderItem = function( ul, item ) {
+                var inner_html = '<a><div class="list_item_container" style="width:300px;height: 54px;padding: 0;"><div class="image" style="width: 60px;height: 60px;margin-right: 10px;float: left;"><img src="https://www.floreriasunidas.com/small/'+ item.imagen + '" width="50px" height="50px" ></div><div class="label" style="font-size: 14px;">'+ item.label +'</div><div class="description" style="font-style: '+ "'HelveticaLTStd-Light'" + ';font-size: 0.6em;color: #787878;">'+ (item.descripcion).substring(0,60) + '...</div></div></a>';return $( "<li></li>" )
+                    .data( "item.autocomplete", item )
+                    .append(inner_html)
+                    .appendTo( ul );
+            };
+        });
+    </script>
+</div>
+
+<script type="text/javascript">
+    var imagenes_fondo = [{image : 'css/images/banner-2.png'},{image : 'css/images/banner-girasoles.jpg'},{image : 'css/images/banner-rosas.jpg'}];
+    fondo();
+
+    //console.log("2017/05/20 15:36:11");
+    $(document).ready(function (e) {
+
+        var $colorbanner = [];
+        //frase link hover
+        $(".frase a").each(function (i) {
+
+            $(this).mouseenter(function (e) {
+                $(".frase a").eq(i).stop(true, false).animate({"background-color": "#FFF"}, 200);
+                $(".frase a p").eq(i).stop(true, false).animate({"color": $colorbanner[i]}, 200);
+            });
+            $(this).mouseleave(function (e) {
+                $(".frase a").eq(i).stop(true, true).animate({"background-color": $colorbanner[i]}, 200);
+                $(".frase a p").eq(i).stop(true, true).animate({"color": "#FFF"}, 200);
+            });
+
+        });
+
+        $("#user_inicio").attr({"id": "user_inicio_activo"});
+    });
+
+    function openFechasRecordar() {
+        $.fancybox.open({
+            href: 'popup-fechas',
+            type: 'ajax',
+            padding: 0,
+            autoWidth: true,
+            autoHeight: true,
+            topRatio: .25
+        });
+    }
+
+
+    $(window).load(function () {
+        setTimeout(function () {
+            $("#banner_movil").html();
+        }, 1000);
+
+        if (window.location.hash === '#footer_fechas') {
+            openFechasRecordar();
+        }
+    });
+</script>
+<script>
+    $(function () {
+        $("#registrate_rut").mask("99.999.999-9");
+    })
+</script>
+</body>
+</html>

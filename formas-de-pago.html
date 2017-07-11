@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Florería</title>
+    <meta name="keywords" content="floreria chillan, ramo de flores, flores a domicilio, envios a todo chile">
+    <meta name="author" content="Pablo Contreras">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet"  type="text/css" href="css/jquery-ui.css" onload="if (media != 'all') media ='all'">
+    <link rel="shortcut icon" href="img/flor_icono.png">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="fancybox/jquery.fancybox-1.3.4.css">
+
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.color.js" async></script>
+    <script type="text/javascript" src="js/rotate.js" async></script>
+    <script type="text/javascript" src="js/jquery.placeholder.js"></script>
+    <script type="text/javascript" src="fancybox/jquery.fancybox-1.3.4.js" async></script>
+
+    <script type="text/javascript" src="js/florerias.js" async></script>
+    <link rel="stylesheet" type="text/css" href="css/estilos-movil.css" media="(max-height:550px)">
+    <link rel="stylesheet" type="text/css" href="css/estilos-movil.css" media="(max-width:1100px)">
+    <link rel="stylesheet" href="inicio.html">
+</head>
+
+<body>
+<div id="main">
+    <div id="user">
+        <div class="ancho">
+            <a href="carritocompra.html" id="user_carrito">
+                <p>Mi carrito</p>
+                <span>0</span>
+            </a>
+
+            <div id="user_redes">
+                <a href="facebook" target="_blank"></a>
+                <a href="twitter" target="_blank"></a>
+                <a href="instagram" target="_blank"></a>
+            </div>
+            <a href="#user" id="user_cuenta_abrir"><p>CUENTA</p></a><a href="#" id="user_cuenta_cerrar"></a>
+            <div id="user_sesion" class="user_form user_form_movil">
+                <div class="user_form_overlay"></div>
+                <p>Inicia sesión</p>
+                <div id="user_sesion0" class="user_form0">
+                    <div>
+                        <p>INICIAR SESIÓN</p>
+                    </div>
+                    <form name="user_sesion_form" id="user_sesion_form" method="POST" action="logueo" data-validate="parsley" autocomplete="off">
+                        <input type="text" name="sesion_correo" id="sesion_correo" class="user_input" placeholder="CORREO:" data-required="true" data-trigger="change" data-type="email">
+                        <input type="password" name="sesion_contrasena" id="sesion_contrasena" class="user_input" placeholder="CONTRASEÑA:" data-required="true" data-type="alphanum" data-trigger="change" data-minLength ="6" >
+                        <input type="submit" name="sesion_ingresar" id="sesion_ingresar" class="user_boton" value="INGRESAR">
+                        <input type="hidden" name="page" value="/" />
+                    </form>
+                    <a href="olvido.html">¿Olvidó su contraseña?</a>
+                    <img src="img/cerrar.png" alt="Cerrar" title="Cerrar">
+                </div>
+            </div>
+
+            <div id="user_registrate" class="user_form user_form_movil">
+                <div class="user_form_overlay"></div>
+                <p>Registrate</p>
+                <div id="user_registrate0" class="user_form0">
+                    <div>
+                        <p><ins>TUS DATOS</ins><em>REGISTRATE</em></p>
+                    </div>
+                    <form name="user_registrate_form" id="user_registrate_form" method="POST" action="registrar" data-validate="parsley" autocomplete="off" >
+                        <input type="text" name="registrate_nombre" id="registrate_nombre" class="user_input"  placeholder="*NOMBRES:" data-required="true" data-type="name" data-trigger="change" data-rangelength="[2,30]" maxlength="30">
+                        <input type="text" name="registrate_apellido paterno" id="registrate_apellido_paterno" class="user_input"  placeholder="*APELLIDO PATERNO:" data-required="true" data-type="name" data-trigger="change" data-rangelength="[2,30]" maxlength="30">
+                        <input type="text" name="registrate_apellido materno" id="registrate_apellido_materno" class="user_input"  placeholder="*APELLIDO MATERNO:" data-required="true" data-type="name" data-trigger="change" data-rangelength="[2,30]" maxlength="30">
+                        <input type="text" name="registrate_rut" id="registrate_rut" class="user_input" placeholder="*RUT:" data-required="true" data-type="digits" data-trigger="change" data-rangelength="[6,8]" maxlength="9">
+                        <input type="text" name="registrate_telefono" id="registrate_telefono" class="user_input" placeholder="TELÉFONO:" data-type="digits" data-trigger="keyup" data-rangelength="[7,20]" maxlength="20">
+                        <input type="text" name="registrate_celular" id="registrate_celular" class="user_input" placeholder="*CELULAR:" data-type="digits" data-required="true" data-trigger="change" data-rangelength="[9,9]" maxlength="9">
+                        <input type="text" name="registrate_correo" id="registrate_correo" class="user_input" placeholder="*CORREO:" data-required="true" data-trigger="change" data-type="email" maxlength="30">
+                        <input type="password" name="registrate_contrasena" id="registrate_contrasena" class="user_input" placeholder="*CONTRASEÑA: (Mínimo 6 caracteres)" data-required="true" data-type="alphanum" data-trigger="keyup" data-minLength ="6" >
+                        <input type="password" name="registrate_repetir" id="registrate_repetir" class="user_input" placeholder="*REPETIR CONTRASEÑA:" data-required="true" data-type="alphanum" data-trigger="keyup" data-minLength ="6" data-equalto="#registrate_contrasena">
+                        <ins style="background:#fff;float:left;height:20px;margin:10px 0 0 0;"><input type="checkbox" name="registrate_boletines" id="registrarte_boletines" style="float:left;height:20px;margin:0;padding:0;width:20px;"><span style="color:#888;float:left;font-family:HelveticaLTStd-Cond;font-size:14px;margin:2px 0 0 10px;padding:0;">Quiero recibir boletines</span></ins>
+                        <input type="submit" name="registrate_registrarme" id="registrate_registrarme" class="user_boton" value="REGISTRARME">
+                    </form>
+                    <img src="img/cerrar.png" alt="Cerrar" title="Cerrar">
+                </div>
+            </div>
+            <a href="inicio.html" id="user_inicio">
+                <p>Inicio</p>
+            </a>
+        </div>
+    </div>
+
+
+
+    <div id="header">
+        <div class="ancho">
+            <h1 title="">
+                <a href="inicio.html" title="">
+                    <img src="img/flor_logo.png" alt="" title=" ">
+                    <strong>Florería</strong>
+                    <em>Chillán</em>
+                    <ins>una flor, un momento</ins>
+                </a>
+            </h1>
+            <div id="header_telefono_celular">
+                <div>
+                    <a href="tel:+56972713796" id="header_telefono">422203749</a>
+                </div>
+            </div>
+
+            <form name="header_buscar_form" id="header_buscar_form" action="javascript:;">
+                <a href="#" id="buscar_boton_cerrar"></a>
+                <input type="text" name="buscar_buscar" id="buscar_buscar" placeholder="Buscar Productos..." >
+                <input type="button" name="buscar_lupa" id="buscar_lupa" value=" " >
+                <a href="#header_buscar_form" id="buscar_boton_abrir"></a>
+            </form>
+
+            <div id="header_menu">
+                <div id="header_menu_boton"><a href="#"></a><a href="#header"></a></div>
+                <a href="#header_menu" id="header_ocasiones_abrir"><p>OCASIONES</p></a>
+                <a href="#" id="header_ocasiones_cerrar"></a>
+                <div id="header_menu_a">
+                    <ul id="header_nav">
+                        <li ><a href="ocasiones-ocasiones-1-1.html">OCASIONES</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="ocasiones-amor-1-1.html">Amor</a></li>
+                                <li><a href="ocasiones-cumpleanos-1-2.html">Cumpleaños</a></li>
+                                <li><a href="ocasiones-aniversario-1-3.html">Aniversario</a></li>
+                                <li><a href="ocasiones-felicitaciones-1-6.html">Felicitaciones</a></li>
+                                <li><a href="ocasiones-mejorate-pronto-1-5.html">Mejórate Pronto</a></li>
+                                <li><a href="ocasiones-institucionales-1-59.html">Institucionales</a></li>
+                                <li><a href="ocasiones-nacimientos-1-4.html">Nacimientos</a></li>
+                                <li><a href="ocasiones-condolencias-1-7.html">Condolencias</a></li>
+                                <li><a href="ocasiones-matrimonios-1-21.html">Matrimonios</a></li>
+                            </ul>
+                        </li>
+                        <li ><a href="productos-arreglos-2-24.html">ARREGLOS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Rosas</a></li>
+                                <li><a href="">Tulipanes</a></li>
+                                <li><a href="">Variados</a></li>
+                                <li><a href="">Girasoles</a></li>
+                                <li><a href="">Anturios</a></li>
+                                <li><a href="">Vintage</a></li>
+                                <li><a href="">Novias</a></li>
+                            </ul>
+                        </li>
+                        <li><a href= "">RAMOS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Ramos</a></li>
+                            </ul>
+                        </li>
+                        <li ><a href="">CONDOLENCIAS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Lágrimas</a></li>
+                                <li><a href="">Coronas</a></li>
+                                <li><a href="">Cruces</a></li>
+                                <li><a href="">Mantos</a></li>
+                                <li><a href="">Arreglos</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li ><a href="">CAJAS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Cajas con Rosas</a>
+                                </li>
+                                <li><a href="">Cajas con Tulipanes</a></li>
+                                <li><a href="">Cajas con Peluches</a></li>
+                            </ul>
+                        </li>
+                        <li ><a href="">NACIMIENTO</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Arreglos Niñas</a></li>
+                                <li><a href="">Arreglos Niños</a></li>
+                                <li><a href="">Canastas Niñas</a></li>
+                                <li><a href="">Canasta Niños</a></li>
+                            </ul>
+                        </li>
+                        <li ><a href="">REGALOS</a>
+                            <input type="radio" name="header_nav_radio">
+                            <ul>
+                                <li><a href="">Peluches</a></li>
+                                <li><a href="">Chocolates</a></li>
+                                <li><a href="">Globos con Helio</a></li>
+                                <li><a href="">Globos</a></li>
+                                <li><a href="">CupCakes</a></li>
+                                <li><a href="">Tortas</a></li>
+                                <li><a href="">Para Él</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript"> $(document).ready(function(){
+        $("a:contains('Día de la Mujer')").addClass("highlightSubcategory");
+    });
+    </script>
+    <!-- content -->
+    <div id="formas" class="content">
+
+        <!-- banner inicio -->
+        <div class="content_banner">
+            <img src="css/images/banner5.jpg" alt="Floreria Chillán, Formas de pago, credito y debito, deposito bancario" title="Floreria Chillán, Formas de pago, credito y debito, deposito bancario">
+            <h2>
+                <span>FORMAS DE PAGO</span>
+            </h2>
+        </div>
+
+        <!-- como comprar -->
+        <div id="formas0">
+            <div class="formas1 aparicion">
+                <div>
+                    <span>01</span>
+                    <h3>Pago por tarjeta de débito o tarjeta de crédito</h3>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <img src="img/icono-visa.png" alt="Visa" title="Visa">
+                            <p>Crédito y Debito</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="formas2">
+                    <p>Realiza el pago de tu compra con tarjeta de débito o tarjeta de crédito al instante.</p>
+                </div>
+            </div>
+            <div class="formas1 aparicion">
+                <div>
+                    <span>02</span>
+                    <h3>Pago por tarjeta de crédito</h3>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <img src="img/icono-mastercard.png" alt="Mastercard" title="Mastercard">
+                            <p>Crédito</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="formas2 forma1">
+                    <p>Realiza el pago de tu compra con tarjeta de crédito.</p>
+                </div>
+            </div>
+            <div class="formas1 aparicion">
+                <div>
+                    <span>03</span>
+                    <h3>Depósito o Transferencia Bancaria</h3>
+                </div>
+                <div>
+                    <ul>
+                        <li>
+                            <img src="img/icono-bancoestado.png" alt="Deposito Bancario" title="Deposito Bancario">
+                        </li>
+                    </ul>
+                </div>
+                <div class="formas2" >
+                    <p>Realiza el pago de tu compra mediante depósito o transferencia en cualquiera de nuestras cuentas</p>
+                    <ins class="formas_boton">Ver cuentas bancarias</ins>
+                    <div class="formas_cuentas">
+                        <em>CUENTA BANCARIA</em>
+                        <ul>
+                            <li>
+                                <strong>Pesos Chilenos</strong> 174592225
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- footer -->
+
+    <div id="footer">
+        <div class="ancho">
+            <div id="footer0">
+
+                <div id="footer_fechas">
+                    <img src="img/icono-calendario.png" alt="Fechas para recordar" title="Fechas para recordar">
+                    <div>
+                        <p>
+                            <strong>FECHAS PARA</strong>
+                            <em>RECORDAR</em>
+                        </p>
+                    </div>
+                    <span>
+                    <ins>Te ayudamos a recordar<br>esos días especiales.</ins><a href="popup-fechas.html" class="popup_fechas"><em>Recordar fecha</em>
+                    </a>
+                </span>
+                </div>
+
+                <div id="footer_recibe">
+                    <strong>RECIBE OFERTAS Y MÁS</strong>
+                    <form name="footer_recibe_form" id="footer_recibe_form" data-validate="parsley" autocomplete="off">
+                        <input type="text" name="recibe_nombre" id="recibe_nombre" class="recibe_input" placeholder="Ingresa tu nombre completo:" data-required="true" data-type="name" data-trigger="keyup" data-rangelength="[2,150]" />
+                        <input type="text" name="recibe_correo" id="recibe_correo" class="recibe_input" placeholder="Ingresa tu correo:" data-required="true" data-trigger="keyup" data-type="email" />
+                        <div class="msgsuscribete"></div>
+                        <input type="submit" name="recibe_suscribirme" id="recibe_suscribirme" value="Suscribirme" />
+                    </form>
+                </div>
+
+                <div id="footer_compra" class="footer1">
+                    <strong>Compra segura</strong>
+                    <p>Tu compra con entrega segura</p>
+                </div>
+
+                <div id="footer_entrega" class="footer1">
+                    <strong>Entrega a tiempo</strong>
+                    <p>Todo esfuerzo posible por dejar su pedido listo para entregarlo lo antes posible</p>
+                </div>
+
+                <div id="footer_telefono" class="footer1">
+                    <div>
+                        <em>Call Center</em>
+                        <a href="tel:422203749">422 203 749</a>
+                        <a href="tel:972713796" id="footer_celular">972 713 796</a>
+                    </div>
+                </div>
+
+                <div id="footer_redes" class="footer1">
+                    <a href="facebook" target="_blank">
+                        <img src="img/icono-facebook.png" alt="Facebook" title="Facebook">
+                    </a>
+                    <a href="twitter" target="_blank">
+                        <img src="img/icono-twitter.png" alt="Twitter" title="Twitter">
+                    </a>
+                    <a href="instagram" target="_blank">
+                        <img src="img/icono-instagram.png" alt="Instagram" title="Instagram">
+                    </a>
+                </div>
+
+            </div>
+            <div id="footer_subir">SUBIR</div>
+        </div>
+    </div>
+
+
+    <div id="cuentas">
+        <div class="ancho">
+
+            <div id="cuentas_pago">
+                <strong>FORMAS DE
+                    <span>PAGO</span>
+                </strong>
+                <em>
+                    <img src="img/icono-visa.png" alt="Visa" title="Visa">
+                    <span>Credito y Debito</span>
+                </em>
+                <em>
+                    <img src="img/icono-mastercard.png" alt="Mastercard" title="Mastercard">
+                    <span>Credito</span>
+                </em>
+                <em>
+                    <img src="img/logo_cuentarut.jpg" alt="Deposito bancario" title="Deposito bancario">
+                    <span>Deposito bancario</span>
+                </em>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="nav">
+        <a href="#nav" id="nav_boton_abrir"><p>MÁS</p></a>
+        <a href="#" id="nav_boton_cerrar"></a>
+        <div class="ancho">
+            <a href="quienes-somos.html">Quiénes somos</a>
+            <a href="como-comprar.html">Cómo comprar</a>
+            <a href="formas-de-pago.html">Formas de pago</a>
+            <a href="preguntas-frecuentes.html">Preguntas frecuentes</a>
+            <a href="terminos-y-condiciones.html">Términos y condiciones</a>
+            <a href="delivery.html">Delivery</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="otros-productos.html">Otros Productos<span> en Tienda</span></a>
+        </div>
+    </div>
+
+
+    <div id="creditos">
+        <div class="ancho">
+            <div id="florerias">
+                <p>FLORERIA CHILLÁN</p>
+                <p>TODOS LOS DERECHOS RESERVADOS <span></span></p>
+            </div>
+            <div id="autor">
+                <p>POWERED BY
+                    <a href="Facebook" target="_blank">PABLO CONTRERAS</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" defer src="js/parsley.js" ></script>
+    <script type="text/javascript" defer src="js/jquery.blockUI.js" ></script>
+    <script type="text/javascript" src="js/jquery-ui.js" ></script>
+    <script type="text/javascript">
+        $("#buscar_buscar").keyup(function(){
+            $("#buscar_buscar").autocomplete({
+                source: function(request, response) {
+                    $.ajax({
+                        url: "listaproducto-"+request.term,
+                        dataType: "json",
+                        data: {
+                            term : request.term
+                        },
+                        success: function(data) {
+                            response(data);
+                        }
+                    });
+                },
+                select: function( event, ui ) {
+                    if(ui.item){
+                        window.location = "detalle-"+ ui.item.id
+                    };
+                },
+                minLength: 2
+            }).autocomplete("instance")._renderItem = function( ul, item ) {
+                var inner_html = '<a><div class="list_item_container" style="width:300px;height: 54px;padding: 0;"><div class="image" style="width: 60px;height: 60px;margin-right: 10px;float: left;"><img src="https://www.floreriasunidas.com/small/'+ item.imagen + '" width="50px" height="50px" ></div><div class="label" style="font-size: 14px;">'+ item.label +'</div><div class="description" style="font-style: '+ "'HelveticaLTStd-Light'" + ';font-size: 0.6em;color: #787878;">'+ (item.descripcion).substring(0,60) + '...</div></div></a>';return $( "<li></li>" )
+                    .data( "item.autocomplete", item )
+                    .append(inner_html)
+                    .appendTo( ul );
+            };
+        });
+    </script>
+</div>
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        $("#nav div a").eq(0).addClass("nav_activo");
+    });
+</script>
+</body>
+</html>
